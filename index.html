@@ -1,13 +1,299 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Systems AI Dashboard</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Beast - Your Virtual Productivity Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Authentication Landing Page -->
+    <div id="auth-page" class="auth-page">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Meet Productivity Beast — Your Virtual Productivity Manager</h1>
+                        <p class="hero-subtitle">AI accountability agent that helps you stay emotionally connected to your goals with proven 5:1 motivation approach</p>
+                    </div>
+                    
+                    <!-- Authentication Form -->
+                    <div class="auth-form-container">
+                        <div class="auth-form-card">
+                            <div class="auth-tabs">
+                                <button class="auth-tab active" data-tab="signin">Sign In</button>
+                                <button class="auth-tab" data-tab="signup">Sign Up</button>
+                            </div>
+                            
+                            <!-- Sign In Form -->
+                            <form id="signin-form" class="auth-form active">
+                                <div class="form-group">
+                                    <label for="signin-email" class="form-label">Email</label>
+                                    <input type="email" id="signin-email" class="form-control" placeholder="Enter your email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signin-password" class="form-label">Password</label>
+                                    <input type="password" id="signin-password" class="form-control" placeholder="Enter your password" required>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" id="remember-me" class="form-check-input">
+                                    <label for="remember-me" class="form-check-label">Remember Me</label>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Sign In</button>
+                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            </form>
+                            
+                            <!-- Sign Up Form -->
+                            <form id="signup-form" class="auth-form">
+                                <div class="form-group">
+                                    <label for="signup-name" class="form-label">Full Name</label>
+                                    <input type="text" id="signup-name" class="form-control" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signup-email" class="form-label">Email</label>
+                                    <input type="email" id="signup-email" class="form-control" placeholder="Enter your email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signup-password" class="form-label">Password</label>
+                                    <input type="password" id="signup-password" class="form-control" placeholder="Create a password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                                    <input type="password" id="confirm-password" class="form-control" placeholder="Confirm your password" required>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Sign Up</button>
+                            </form>
+                            
+                            <!-- Social Login -->
+                            <div class="social-login">
+                                <div class="divider">
+                                    <span>Or continue with</span>
+                                </div>
+                                <div class="social-buttons">
+                                    <button class="btn btn--outline social-btn">
+                                        <span>Google</span>
+                                    </button>
+                                    <button class="btn btn--outline social-btn">
+                                        <span>Apple</span>
+                                    </button>
+                                    <button class="btn btn--outline social-btn">
+                                        <span>Facebook</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Preview Section -->
+        <div class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📋</div>
+                        <h3>Task Scheduling + Priority Matrix</h3>
+                        <p>Organize tasks with smart prioritization and time-blocking</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Team Assignment with Reminders</h3>
+                        <p>Collaborate efficiently with automated notifications</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Daily & Weekly Performance Review</h3>
+                        <p>Track progress with detailed analytics and insights</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>Automated Feedback Messages</h3>
+                        <p>Get personalized coaching from AI productivity agent</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>Insights + Suggestions for Optimization</h3>
+                        <p>Discover patterns and optimize your workflow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Protected Dashboard -->
+    <div id="dashboard-page" class="dashboard-page hidden">
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">
+                        <h2>🦁 Productivity Beast</h2>
+                    </div>
+                    <div class="welcome-message">
+                        <span id="welcome-text">Welcome back, John!</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Today's Tasks</span>
+                            <span class="stat-value" id="today-tasks">3</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Streak</span>
+                            <span class="stat-value" id="streak-count">12</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Score</span>
+                            <span class="stat-value" id="productivity-score">85</span>
+                        </div>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">
+                            <img id="user-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150" alt="User Avatar">
+                        </div>
+                        <div class="user-dropdown">
+                            <button class="dropdown-item">Profile</button>
+                            <button class="dropdown-item">Settings</button>
+                            <button class="dropdown-item" id="logout-btn">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-layout">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar">
+                <div class="nav-items">
+                    <a href="#" class="nav-item active" data-section="dashboard">📊 Dashboard</a>
+                    <a href="#" class="nav-item" data-section="goals">🎯 Goals & Tasks</a>
+                    <a href="#" class="nav-item" data-section="team">👥 Team Management</a>
+                    <a href="#" class="nav-item" data-section="analytics">📈 Analytics & Reports</a>
+                    <a href="#" class="nav-item" data-section="settings">⚙️ Settings</a>
+                    <a href="#" class="nav-item" data-section="help">❓ Help & Support</a>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div id="dashboard-section" class="content-section active">
+                    <!-- Quick Action Cards -->
+                    <div class="quick-actions">
+                        <div class="action-card">
+                            <div class="action-icon">🎯</div>
+                            <h3>Add New Goal</h3>
+                            <p>Set a new objective</p>
+                        </div>
+                        <div class="action-card">
+                            <div class="action-icon">✅</div>
+                            <h3>Create Task</h3>
+                            <p>Add a new task</p>
+                        </div>
+                        <div class="action-card">
+                            <div class="action-icon">📅</div>
+                            <h3>Schedule Meeting</h3>
+                            <p>Plan team sync</p>
+                        </div>
+                        <div class="action-card">
+                            <div class="action-icon">📊</div>
+                            <h3>View Progress</h3>
+                            <p>Check analytics</p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Active Goals Section -->
+                        <div class="dashboard-widget">
+                            <div class="widget-header">
+                                <h3>Active Goals</h3>
+                                <span class="goal-count" id="active-goals-count">3</span>
+                            </div>
+                            <div class="goals-list" id="goals-list">
+                                <!-- Goals will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity Feed -->
+                        <div class="dashboard-widget">
+                            <div class="widget-header">
+                                <h3>Recent Activity</h3>
+                            </div>
+                            <div class="activity-feed" id="activity-feed">
+                                <!-- Activity items will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- AI Coach Section -->
+                        <div class="dashboard-widget ai-coach">
+                            <div class="widget-header">
+                                <h3>🤖 AI Coach</h3>
+                            </div>
+                            <div class="coach-content">
+                                <div class="daily-message" id="daily-message">
+                                    <!-- Daily message will be populated by JavaScript -->
+                                </div>
+                                <div class="coach-tips" id="coach-tips">
+                                    <!-- Tips will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance Analytics -->
+                        <div class="dashboard-widget">
+                            <div class="widget-header">
+                                <h3>Weekly Progress</h3>
+                            </div>
+                            <div class="progress-chart">
+                                <canvas id="weekly-chart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other sections (Goals, Team, etc.) -->
+                <div id="goals-section" class="content-section">
+                    <h2>Goals & Tasks</h2>
+                    <p>Manage your goals and tasks here.</p>
+                </div>
+
+                <div id="team-section" class="content-section">
+                    <h2>Team Management</h2>
+                    <p>Collaborate with your team.</p>
+                </div>
+
+                <div id="analytics-section" class="content-section">
+                    <h2>Analytics & Reports</h2>
+                    <p>View detailed analytics and reports.</p>
+                </div>
+
+                <div id="settings-section" class="content-section">
+                    <h2>Settings</h2>
+                    <p>Adjust your preferences.</p>
+                </div>
+
+                <div id="help-section" class="content-section">
+                    <h2>Help & Support</h2>
+                    <p>Get help and support.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="notification-toast hidden">
+        <span id="notification-message"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
 </html>
